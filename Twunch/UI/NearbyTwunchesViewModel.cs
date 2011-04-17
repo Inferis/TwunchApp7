@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Device.Location;
+using System.Globalization;
 using Caliburn.Micro;
 using Inferis.TwunchApp.API;
 
@@ -15,6 +16,7 @@ namespace Inferis.TwunchApp.UI {
         {
             Name = "Nearby";
             Twunches = new ObservableCollection<TwunchViewModel>();
+            CurrentLocation = @"Locating...";
 
             watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default) {
                 MovementThreshold = 20
@@ -31,6 +33,7 @@ namespace Inferis.TwunchApp.UI {
         }
 
         public string Name { get; set; }
+        public string CurrentLocation { get; set; }
         public ObservableCollection<TwunchViewModel> Twunches { get; private set; }
 
         public void SetAllTwunches(IEnumerable<Twunch> twunches)
@@ -41,6 +44,9 @@ namespace Inferis.TwunchApp.UI {
 
         private void RefreshFilter()
         {
+            CurrentLocation = string.Format(CultureInfo.InvariantCulture, "{0:0.000000}, {1:0.000000}", lastLocation.Latitude, lastLocation.Longitude);
+            NotifyOfPropertyChange(() => CurrentLocation);
+
             Twunches.Clear();
             if (lastLocation.IsUnknown) return;
             foreach (var twunch in allTwunches) {

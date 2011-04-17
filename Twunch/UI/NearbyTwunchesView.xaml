@@ -10,7 +10,17 @@
     d:DesignHeight="480" d:DesignWidth="480">
     
     <Grid x:Name="LayoutRoot">
-      <ListBox x:Name="Twunches">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Border Margin="0,0,0,6" Grid.Row="0" CornerRadius="9" Background="{StaticResource PhoneChromeBrush}">
+        <StackPanel Margin="6,3" Orientation="Horizontal">
+          <TextBlock Text="Currently at: " />
+          <TextBlock x:Name="CurrentLocation" FontWeight="Bold" Text="12.00000, 45.000000" />
+        </StackPanel>
+      </Border>
+      <ListBox x:Name="Twunches" Grid.Row="1">
 
       </ListBox>
     </Grid>
