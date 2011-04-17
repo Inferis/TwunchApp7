@@ -1,8 +1,7 @@
 ﻿<Application 
-    x:Class="Twunch.App"
+    x:Class="Inferis.TwunchApp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Twunch">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Inferis.TwunchApp">
 
     <!--Application Resources-->
     <Application.Resources>

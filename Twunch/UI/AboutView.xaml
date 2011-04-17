@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Twunch.UI.AboutView"
+﻿<UserControl x:Class="Inferis.TwunchApp.UI.AboutView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,9 +10,11 @@
     d:DesignHeight="480" d:DesignWidth="320">
     
     <Grid x:Name="LayoutRoot">
-    	<Image Margin="31,8,31,237" Source="/Twunch;component/Resources/Burger.png" Stretch="Fill" HorizontalAlignment="Center"/>
-    	<TextBlock HorizontalAlignment="Left" Height="44" Margin="8,0,0,189" TextWrapping="Wrap" Text="Twunch" VerticalAlignment="Bottom" Width="303" FontSize="32"/>
-    	<TextBlock Height="172" Margin="8,0,8,8" TextWrapping="Wrap" VerticalAlignment="Bottom"><Run Text="Twunch is an initiative by @atog, @inferis and @10to1. "/><LineBreak/><Run/><LineBreak/><Run Text="Photography by lilcrabbygal. "/><LineBreak/><Run Text=""/></TextBlock>
+    	<StackPanel>
+    		<Image Source="/TwunchApp;component/Resources/Burger.png" Height="235" HorizontalAlignment="Center"/>
+    		<TextBlock HorizontalAlignment="Left" Height="44" TextWrapping="Wrap" Text="Twunch" Width="303" FontSize="32"/>
+    		<TextBlock TextWrapping="Wrap"><Run Text="Twunch is an initiative by "/><Run Text="@atog" TextDecorations="Underline"/><Run Text=", "/><Run Text="@inferis"/><Run Text=" and " /><Run Text="@10to1"/><LineBreak/><Run/><LineBreak/><Run Text="Photography by lilcrabbygal. "/><LineBreak/><Run Text=""/></TextBlock>
+    	</StackPanel>
 
     </Grid>
 </UserControl>
