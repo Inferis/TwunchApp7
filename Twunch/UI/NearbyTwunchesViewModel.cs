@@ -42,10 +42,9 @@ namespace Inferis.TwunchApp.UI {
             NotifyOfPropertyChange(() => CurrentLocation);
 
             Twunches.Clear();
-            if (lastLocation.IsUnknown) return;
+            if (lastLocation.IsUnknown || allTwunches == null) return;
             foreach (var twunch in allTwunches) {
-                var ll = new GeoCoordinate(twunch.Latitude, twunch.Longitude);
-                if (ll.GetDistanceTo(lastLocation) < 50000)
+                if (!twunch.Coordinate.IsUnknown && twunch.Coordinate.GetDistanceTo(lastLocation) < 50000)
                     Twunches.Add(new TwunchItemViewModel(twunch));
             }
         }
