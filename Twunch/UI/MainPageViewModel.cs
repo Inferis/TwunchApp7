@@ -12,9 +12,9 @@ namespace Inferis.TwunchApp.UI {
             Pivots = new ObservableCollection<object> {nearbyTwunchesViewModel, allTwunchesViewModel, aboutViewModel};
         }
 
-        protected override void OnActivate()
+        protected override void OnInitialize()
         {
-            base.OnActivate();
+            base.OnInitialize();
 
             new SequentialResult(LoadTwunches().GetEnumerator()).Execute(new ActionExecutionContext());
         }
