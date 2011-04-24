@@ -7,7 +7,7 @@
     mc:Ignorable="d" xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
    xmlns:nl="clr-namespace:NavigationListControl" 
-   FontFamily="{StaticResource PhoneFontFamilyNormal}"
+   xmlns:phoneshell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
@@ -15,4 +15,5 @@
     <Grid x:Name="LayoutRoot">
       <nl:NavigationList x:Name="Twunches" />
     </Grid>
+
 </phone:PhoneApplicationPage>
