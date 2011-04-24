@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="Inferis.TwunchApp.UI.AllTwunchesView"
+﻿<phone:PhoneApplicationPage
+   x:Class="Inferis.TwunchApp.UI.AllTwunchesView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    mc:Ignorable="d" xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" 
+   xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
@@ -12,4 +13,4 @@
     <Grid x:Name="LayoutRoot">
       <ListBox x:Name="Twunches" SelectedItem="{Binding SelectedTwunch, Mode=TwoWay}" />
     </Grid>
-</UserControl>
+</phone:PhoneApplicationPage>
