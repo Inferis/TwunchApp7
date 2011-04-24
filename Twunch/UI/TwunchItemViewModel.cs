@@ -4,11 +4,11 @@ using Inferis.TwunchApp.API;
 
 namespace Inferis.TwunchApp.UI
 {
-    public class TwunchViewModel : Screen
+    public class TwunchItemViewModel : Screen
     {
         private readonly Twunch source;
 
-        public TwunchViewModel(Twunch source)
+        public TwunchItemViewModel(Twunch source)
         {
             this.source = source;
         }

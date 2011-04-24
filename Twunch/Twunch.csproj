@@ -79,7 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleContainer.cs" />
     <Compile Include="UI\NearbyTwunchesViewModel.cs" />
-    <Compile Include="UI\TwunchViewModel.cs" />
+    <Compile Include="UI\TwunchDetailViewModel.cs" />
+    <Compile Include="UI\TwunchesViewModelBase.cs" />
+    <Compile Include="UI\TwunchItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -102,7 +104,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Twunchview.xaml">
+    <Page Include="UI\TwunchDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TwunchItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
