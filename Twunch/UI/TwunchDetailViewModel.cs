@@ -21,7 +21,7 @@ namespace Inferis.TwunchApp.UI
 
         public string Id { get; set; }
 
-        public string Title
+        public string PageTitle
         {
             get { return item == null ? "" : item.Title; }
         }
@@ -42,7 +42,7 @@ namespace Inferis.TwunchApp.UI
             set
             {
                 item = value;
-                NotifyOfPropertyChange(() => Title);
+                NotifyOfPropertyChange(() => PageTitle);
                 NotifyOfPropertyChange(() => Participants);
                 NotifyOfPropertyChange(() => Date);
             }
