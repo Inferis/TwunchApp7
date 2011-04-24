@@ -49,7 +49,10 @@ namespace Inferis.TwunchApp.UI {
         {
             base.OnViewLoaded(view);
             // flyin the title again
-            ((PhoneApplicationPage) view).Loaded += (s, e) => ((PhoneApplicationPage)s).Dispatcher.BeginInvoke(() => _flyOutAnimation.ItemFlyIn());
+            ((PhoneApplicationPage)view).Loaded += (s, e) => {
+                var page = (PhoneApplicationPage)s;
+                page.Dispatcher.BeginInvoke(() => _flyOutAnimation.ItemFlyIn());
+            };
         }
 
         private void NavigateToTwunchWithId(string id)

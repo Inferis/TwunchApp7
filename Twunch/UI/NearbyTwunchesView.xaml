@@ -23,4 +23,5 @@
       </Border>
       <nl:NavigationList x:Name="Twunches" Grid.Row="1" />
     </Grid>
+  
 </phone:PhoneApplicationPage>
