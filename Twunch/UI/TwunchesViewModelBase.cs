@@ -19,16 +19,12 @@ namespace Inferis.TwunchApp.UI
 
         public string Name { get; set; }
         public ObservableCollection<TwunchItemViewModel> Twunches { get; private set; }
-        public TwunchItemViewModel SelectedTwunch
-        {
-            get { return null; }
-            set
-            {
-                if (value != null) {
-                    var to = new Uri("/UI/TwunchDetailView.xaml?id=" + value.Id, UriKind.RelativeOrAbsolute);
-                    navigationService.Navigate(to);
-                }
 
+        public void NavigateTwunches(TwunchItemViewModel item)
+        {
+            if (item != null) {
+                var to = new Uri("/UI/TwunchDetailView.xaml?id=" + item.Id, UriKind.RelativeOrAbsolute);
+                navigationService.Navigate(to);
             }
         }
 
