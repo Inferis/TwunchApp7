@@ -13,15 +13,29 @@ using System.Windows.Shapes;
 using Caliburn.Micro;
 using Inferis.TwunchApp.API;
 
-namespace Inferis.TwunchApp.UI {
-    public class TwunchDetailViewModel : Screen {
+namespace Inferis.TwunchApp.UI
+{
+    public class TwunchDetailViewModel : Screen
+    {
         private Twunch item;
 
         public string Id { get; set; }
-        public string Title { get { return item == null ? "" : item.Title; } }
-        public string Date { get { return item == null ? "" : item.Date.ToLocalTime().ToString("dd/MM/yyyy HH:mm"); } }
-        public List<string> Participants { get { return item == null ? null : item.Participants; } }
-        
+
+        public string Title
+        {
+            get { return item == null ? "" : item.Title; }
+        }
+
+        public string Date
+        {
+            get { return item == null ? "" : item.Date.ToLocalTime().ToString("dd/MM/yyyy HH:mm"); }
+        }
+
+        public List<string> Participants
+        {
+            get { return item == null ? null : item.Participants; }
+        }
+
         protected Twunch Item
         {
             get { return item; }
@@ -37,7 +51,7 @@ namespace Inferis.TwunchApp.UI {
         protected override void OnInitialize()
         {
             base.OnInitialize();
-            new Twunch.Fetcher(twunches => Item = twunches.FirstOrDefault(x => x.Id == Id), true);
+            new Twunch.Fetcher(twunches => Item = twunches.FirstOrDefault(x => x.Id == Id), true).Execute(new ActionExecutionContext());
         }
     }
-}
+} ;
