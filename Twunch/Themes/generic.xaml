@@ -1,0 +1,40 @@
+﻿<ResourceDictionary 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:l="clr-namespace:NavigationListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+  
+  <Style TargetType="l:NavigationList">
+    <Setter Property="ItemTemplate">
+      <Setter.Value>
+        <DataTemplate>
+          <TextBlock Text="{Binding}"/>
+        </DataTemplate>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+          
+          <l:ItemsControlEx x:Name="itemsControl"
+                        ItemsSource="{Binding Path=ItemsSource, RelativeSource={RelativeSource TemplatedParent}}"
+                        ItemTemplate="{Binding Path=ItemTemplate, RelativeSource={RelativeSource TemplatedParent}}">                        
+            <l:ItemsControlEx.ItemsPanel>
+              <ItemsPanelTemplate>
+                <VirtualizingStackPanel Orientation="Vertical"/>
+              </ItemsPanelTemplate>
+            </l:ItemsControlEx.ItemsPanel>
+            <l:ItemsControlEx.Template>
+              <ControlTemplate>
+                <ScrollViewer>
+                  <ItemsPresenter/>
+                </ScrollViewer>
+              </ControlTemplate>
+            </l:ItemsControlEx.Template>
+          </l:ItemsControlEx>
+          
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>
+  

@@ -73,6 +73,8 @@
     <Compile Include="ContainerExtensions.cs" />
     <Compile Include="UI\AboutViewModel.cs" />
     <Compile Include="UI\AllTwunchesViewModel.cs" />
+    <Compile Include="UI\Controls\ItemsControlEx.cs" />
+    <Compile Include="UI\Controls\NavigationList.cs" />
     <Compile Include="UI\ITwunchesViewModel.cs" />
     <Compile Include="UI\MainPageViewModel.cs" />
     <Compile Include="PhoneContainer.cs" />
@@ -89,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="UI\AllTwunchesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
