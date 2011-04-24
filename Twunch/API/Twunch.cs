@@ -29,14 +29,22 @@ namespace Inferis.TwunchApp.API {
 
         public class Fetcher : IResult {
             private readonly Action<IEnumerable<Twunch>> callback;
+            private readonly bool allowCache;
+            private List<Twunch> cache = null;
 
-            public Fetcher(Action<IEnumerable<Twunch>> callback)
+            public Fetcher(Action<IEnumerable<Twunch>> callback, bool allowCache)
             {
                 this.callback = callback;
+                this.allowCache = allowCache;
             }
 
             public void Execute(ActionExecutionContext context)
             {
+                if (cache != null && allowCache) {
+                    ReturnResult(cache);
+                    return;
+                }
+
                 var request = WebRequest.CreateHttp("http://www.twunch.be/events.xml");
                 request.BeginGetResponse(ResponseReceived, request);
             }
@@ -54,7 +62,13 @@ namespace Inferis.TwunchApp.API {
                     }
                 }
 
-                callback(result.Where(t => t.Date > DateTimeOffset.Now).OrderBy(t => t.Date));
+                cache = result.Where(t => t.Date > DateTimeOffset.Now).OrderBy(t => t.Date).ToList();
+                ReturnResult(cache);
+            }
+
+            private void ReturnResult(List<Twunch> result)
+            {
+                callback(result);
                 Completed(this, new ResultCompletionEventArgs());
             }
 
