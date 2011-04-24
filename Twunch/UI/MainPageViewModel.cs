@@ -19,10 +19,6 @@ namespace Inferis.TwunchApp.UI {
             new SequentialResult(LoadTwunches().GetEnumerator()).Execute(new ActionExecutionContext());
         }
 
-        public void SelectTwunch(object twunch)
-        {
-            
-        }
         private IEnumerable<IResult> LoadTwunches()
         {
             IEnumerable<Twunch> twunches = null;

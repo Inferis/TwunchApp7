@@ -74,6 +74,8 @@
     <Compile Include="UI\AboutViewModel.cs" />
     <Compile Include="UI\AllTwunchesViewModel.cs" />
     <Compile Include="UI\Controls\ItemsControlEx.cs" />
+    <Compile Include="UI\Controls\LinqToVisualTree.cs" />
+    <Compile Include="UI\Controls\MetroInMotion.cs" />
     <Compile Include="UI\Controls\NavigationList.cs" />
     <Compile Include="UI\ITwunchesViewModel.cs" />
     <Compile Include="UI\MainPageViewModel.cs" />
@@ -81,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleContainer.cs" />
     <Compile Include="UI\NearbyTwunchesViewModel.cs" />
+    <Compile Include="UI\TwunchDetailView.xaml.cs">
+      <DependentUpon>TwunchDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TwunchDetailViewModel.cs" />
     <Compile Include="UI\TwunchesViewModelBase.cs" />
     <Compile Include="UI\TwunchItemViewModel.cs" />
