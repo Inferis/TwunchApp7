@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -25,12 +26,24 @@ namespace Inferis.TwunchApp.API {
         public double Longitude { get; set; }
         public List<string> Participants { get; private set; }
         public bool Closed { get; set; }
+        public GeoCoordinate Coordinate
+        {
+            get
+            {
+                try {
+                    return new GeoCoordinate(Latitude, Longitude);
+                }
+                catch (Exception) {
+                    return GeoCoordinate.Unknown;
+                }
+            }
+        }
 
 
         public class Fetcher : IResult {
             private readonly Action<IEnumerable<Twunch>> callback;
             private readonly bool allowCache;
-            private List<Twunch> cache = null;
+            private static List<Twunch> cache = null;
 
             public Fetcher(Action<IEnumerable<Twunch>> callback, bool allowCache)
             {
@@ -109,11 +122,11 @@ namespace Inferis.TwunchApp.API {
                                 break;
                             }
                         case "latitude": {
-                            double l = 0;
-                            double.TryParse(reader.ReadElementContentAsString(), out l);
-                            result.Latitude = l;
-                            break;
-                        }
+                                double l = 0;
+                                double.TryParse(reader.ReadElementContentAsString(), out l);
+                                result.Latitude = l;
+                                break;
+                            }
                         case "closed":
                             result.Closed = reader.ReadElementContentAsBoolean();
                             break;
