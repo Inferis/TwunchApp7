@@ -20,7 +20,7 @@
           <TextBlock x:Name="CurrentLocation" FontWeight="Bold" Text="12.00000, 45.000000" />
         </StackPanel>
       </Border>
-      <ListBox x:Name="Twunches" Grid.Row="1">
+      <ListBox x:Name="Twunches" Grid.Row="1" SelectedItem="{Binding SelectedTwunch, Mode=TwoWay}">
 
       </ListBox>
     </Grid>
