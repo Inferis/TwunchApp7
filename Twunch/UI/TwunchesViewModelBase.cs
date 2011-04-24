@@ -24,8 +24,11 @@ namespace Inferis.TwunchApp.UI
             get { return null; }
             set
             {
-                if (value != null)
-                    navigationService.Navigate(new Uri("/UI/TwunchDetail.xaml?id=" + value.Id));
+                if (value != null) {
+                    var to = new Uri("/UI/TwunchDetailView.xaml?id=" + value.Id, UriKind.RelativeOrAbsolute);
+                    navigationService.Navigate(to);
+                }
+
             }
         }
 
