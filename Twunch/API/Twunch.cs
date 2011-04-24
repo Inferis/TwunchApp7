@@ -117,13 +117,15 @@ namespace Inferis.TwunchApp.API {
                             }
                         case "longitude": {
                                 double l = 0;
-                                double.TryParse(reader.ReadElementContentAsString(), out l);
+                            string s = reader.ReadElementContentAsString();
+                            double.TryParse(s, NumberStyles.Float, new CultureInfo("en-US"), out l);
                                 result.Longitude = l;
                                 break;
                             }
                         case "latitude": {
                                 double l = 0;
-                                double.TryParse(reader.ReadElementContentAsString(), out l);
+                                string s = reader.ReadElementContentAsString();
+                                double.TryParse(s, NumberStyles.Float, new CultureInfo("en-US"), out l);
                                 result.Latitude = l;
                                 break;
                             }
