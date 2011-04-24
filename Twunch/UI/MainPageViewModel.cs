@@ -29,5 +29,10 @@ namespace Inferis.TwunchApp.UI {
         }
 
         public ObservableCollection<object> Pivots { get; set; }
+
+        public void RefreshTwunches()
+        {
+            new SequentialResult(LoadTwunches().GetEnumerator()).Execute(new ActionExecutionContext());
+        }
     }
 }
