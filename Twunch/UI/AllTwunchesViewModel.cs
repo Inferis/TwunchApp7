@@ -13,6 +13,7 @@ namespace Inferis.TwunchApp.UI {
 
         public override void SetAllTwunches(IEnumerable<Twunch> twunches)
         {
+            Twunches.Clear();
             foreach (var twunch in twunches) {
                 Twunches.Add(new TwunchItemViewModel(twunch));
             }
