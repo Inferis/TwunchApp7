@@ -7,36 +7,30 @@ using Caliburn.Micro;
 using Inferis.TwunchApp.API;
 
 namespace Inferis.TwunchApp.UI {
-    public class NearbyTwunchesViewModel : Screen, ITwunchesViewModel {
+    public class NearbyTwunchesViewModel : TwunchesViewModelBase {
         private GeoCoordinateWatcher watcher;
         private GeoCoordinate lastLocation = new GeoCoordinate(51.181858, 4.599001);
         private IEnumerable<Twunch> allTwunches;
 
-        public NearbyTwunchesViewModel()
-        {
-            Name = "Nearby";
-            Twunches = new ObservableCollection<TwunchViewModel>();
+        public NearbyTwunchesViewModel(INavigationService navigationService)
+            : base("Nearby", navigationService)
+        {   
             CurrentLocation = @"Locating...";
 
             watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.Default) {
                 MovementThreshold = 20
             };
 
-            watcher.PositionChanged += this.watcher_PositionChanged;
+            watcher.PositionChanged += (s, e) => {
+                lastLocation = e.Position.Location;
+                RefreshFilter();
+            };
             watcher.Start();
         }
 
-        private void watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            lastLocation = e.Position.Location;
-            RefreshFilter();
-        }
-
-        public string Name { get; set; }
         public string CurrentLocation { get; set; }
-        public ObservableCollection<TwunchViewModel> Twunches { get; private set; }
 
-        public void SetAllTwunches(IEnumerable<Twunch> twunches)
+        public override void SetAllTwunches(IEnumerable<Twunch> twunches)
         {
             allTwunches = twunches;
             RefreshFilter();
@@ -52,7 +46,7 @@ namespace Inferis.TwunchApp.UI {
             foreach (var twunch in allTwunches) {
                 var ll = new GeoCoordinate(twunch.Latitude, twunch.Longitude);
                 if (ll.GetDistanceTo(lastLocation) < 50000)
-                    Twunches.Add(new TwunchViewModel(twunch));
+                    Twunches.Add(new TwunchItemViewModel(twunch));
             }
         }
     }
